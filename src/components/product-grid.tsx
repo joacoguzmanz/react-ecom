@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 import { getAuth } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebaseConfig";
-// import { loadStripe } from "@stripe/stripe-js";
 import { Link } from "react-router";
 import { Product } from "@/types/product";
 import { useCart } from "@/context/CartContext";
@@ -58,6 +57,8 @@ const ProductGrid = ({ category, priceRange }: ProductGridProps) => {
     }, [category, priceRange]);
 
     if (loading) return "Loading...";
+
+    if (isSeller) console.log("is seller");
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
